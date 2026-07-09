@@ -1,30 +1,95 @@
 # PDF_QnA_RAG
 Practice Python Project for RAG
 
-## 🛠️ Setup Instructions
+## 🚀 Getting Started
 
-### 1. Clone the Repository
+### 1. Clone the repository
+
 ```bash
-git clone https://github.com
+git clone https://github.com/sharniks/PDF_QnA_RAG.git
 cd PDF_QnA_RAG
 ```
 
-### 2. Configure Environment Variables
-This project requires API keys to function. Do not commit your real keys to Git.
+### 2. Create and activate a virtual environment (recommended)
 
-1. Create a new file named `.env` in the root directory of the project:
-   ```bash
-   touch .env
-   ```
-2. Open the `.env` file in your text editor and add your Hugging Face Access Token using the following format:
+Creating a virtual environment keeps the project's dependencies isolated from your system Python.
 
-```env
-# Hugging Face User Access Token (Get one at hf.co/settings/tokens)
-HF_TOKEN=your_huggingface_token_here
+**Windows (PowerShell)**
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate
 ```
 
-### 3. Install Dependencies
-*(Add your specific installation commands here, for example:)*
+**Windows (Command Prompt)**
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install the required dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Create a `.env` file in the project root and add your Hugging Face API token:
+
+```text
+HF_API_TOKEN=your_huggingface_api_token
+```
+
+### 5. Add your PDF
+
+Place the PDF you want to query inside the `data/` folder.
+
+Example:
+
+```
+data/
+└── Sample-Java.pdf
+```
+
+### 6. Generate embeddings and create the FAISS index
+
+Run the ingestion script:
+
+```bash
+python ingest.py
+```
+
+This will:
+
+- Extract text from the PDF
+- Split it into chunks
+- Generate embeddings
+- Create and save the FAISS index
+
+### 7. Start the chatbot
+
+Once the FAISS index has been created, run:
+
+```bash
+python query.py
+```
+
+Ask questions about your PDF:
+
+```text
+Ask a question (or type 'exit'):
+```
+
+Type `exit` to quit. for example:)*
 ```bash
 pip install -r requirements.txt
 ```
