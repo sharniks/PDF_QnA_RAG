@@ -89,7 +89,4 @@ Ask questions about your PDF:
 Ask a question (or type 'exit'):
 ```
 
-Type `exit` to quit. for example:)*
-```bash
-pip install -r requirements.txt
-```
+Type `exit` to quit.
