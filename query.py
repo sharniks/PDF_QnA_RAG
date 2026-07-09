@@ -96,7 +96,7 @@ def ask_hf(
         context,
         max_new_tokens=256,
         temperature=0.0,
-        model="meta-llama/Llama-3.1-8B-Instruct:cerebras"):
+        model="meta-llama/Llama-3.1-8B-Instruct"):
     """
     Sends the retrieved context and user query to
     Hugging Face Inference API.
@@ -178,9 +178,6 @@ def ask_hf(
         json=payload,
         timeout=120
     )
-
-    # Raise exception for HTTP errors (4xx, 5xx)
-    response.raise_for_status()
 
     # Convert JSON response into Python dictionary.
     result = response.json()
